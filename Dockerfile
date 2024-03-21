@@ -15,4 +15,4 @@ COPY . .
 COPY insurance_model.pkl /app/insurance_model.pkl
 
 # Command to run the model (replace with your script)
-CMD ["python", "train.py"]
+CMD ["python", "app.py"]
