@@ -1,0 +1,28 @@
+# Define variables
+IMAGE_NAME = insurance_prediction
+CONTAINER_NAME = insurance_container
+
+# Build Docker image
+build:
+    docker build -t $(IMAGE_NAME) .
+
+# Run Docker container
+run:
+    docker run -d -p 80:80 --name $(CONTAINER_NAME) $(IMAGE_NAME)
+
+# Stop Docker container
+stop:
+    docker stop $(CONTAINER_NAME)
+
+# Remove Docker container
+rm:
+    docker rm $(CONTAINER_NAME)
+
+# Clean up Docker images
+clean:
+    docker image prune -a
+
+# Push Docker image to repository (replace <repository> with your repository name)
+push:
+    docker tag $(IMAGE_NAME) <repository>/$(IMAGE_NAME)
+    docker push <repository>/$(IMAGE_NAME)
